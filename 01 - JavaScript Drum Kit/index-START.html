@@ -58,9 +58,106 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  // detect when I click on a div
+  // send div attribute info into a function
 
+
+  // bind a click handler to the key class.
+  // give me the element i clicked on. find out what it's data-key attribute value is
+  // now given the data-key attribute value, select the correct audio file to play.
+
+
+  function identifyKey(event){
+
+    console.log(event.key);
+    console.log(typeof(new String(true)));
+  };
+
+
+  function processKeyCode(event){
+    if (event.key === "a" || event.key === "A"){
+      return "65";
+    } else if (event.key === "s" || event.key === "S"){
+      return "83";
+    } else if (event.key === "d" || event.key === "D"){
+      return "68";
+    } else if (event.key === "f" || event.key === "F"){
+      return "70";
+    } else if (event.key === "g" || event.key === "G"){
+      return "71";
+    } else if (event.key === "h" || event.key === "H"){
+      return "72";
+    } else if (event.key === "j" || event.key === "J"){
+      return "74";
+    } else if (event.key === "k" || event.key === "K"){
+      return "75";
+    } else if (event.key === "l" || event.key === "L"){
+      return "76";
+    }; 
+  };
+
+
+
+  // function dumb(){
+  //   console.log("hello");
+  // };
+
+
+
+  // const x = document.getElementsByClassName('key');
+  
+  // for (var i = 0; i < x.length; i++) {
+  //   x[i].onclick = function(){
+  //     dumb();
+  //   };
+  // };
+
+  // function indicatePlaying(event){
+  //   if 
+  // }
+
+  document.onkeypress = function(event){
+    const key = processKeyCode(event);
+    const selectedElement = document.querySelector("div[data-key='lol']".replace(/lol/, key));
+    selectedElement.className += " playing";
+
+    const audio = document.querySelector("audio[data-key='lol']".replace(/lol/, key));
+    audio.currentTime = 0;
+    audio.play();
+
+    console.log(selectedElement);
+  };
+
+  document.onkeyup = function(event){
+    const key = processKeyCode(event);
+    const selectedElement = document.querySelector("div[data-key='lol']".replace(/lol/, key));
+    selectedElement.classList.remove("playing");
+  };
+
+
+
+
+
+
+  // document.onkeypress = event => identifyKey(event);
+
+
+  // console.log(document.onkeypress);
+
+
+
+  // console.log(x[0].getAttribute("data-key"));
+
+
+  // function play(){
+  //   let audio = document.getElementById
+  // }
 </script>
 
 
 </body>
 </html>
+
+
+
+
